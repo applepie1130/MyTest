@@ -18,7 +18,12 @@
 	
 	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor"></bean>
 	
+	<bean name="tcpSocketAddress" class="java.net.InetSocketAddress">
+		<constructor-arg value="8023"/>
+	</bean>
+	
 	<context:component-scan base-package="com.applepie1130.thread" />
+	<context:component-scan base-package="com.applepie1130.netty.telnet" />
 	
 <!-- 
 	<util:properties id="globalConf" location="classpath:globalconfiguration.properties" />
