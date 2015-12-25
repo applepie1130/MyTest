@@ -8,10 +8,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 /**
  * 텔넷서버
@@ -30,15 +33,20 @@ public class TelnetServer {
 	public void start() {
 		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
+		Channel channel = null;
+		ChannelFuture channelFuture = null;
 		
 		try {
 			ServerBootstrap b = new ServerBootstrap();
 			b.group(bossGroup, workerGroup)
 				.channel(NioServerSocketChannel.class)
+				.handler(new LoggingHandler(LogLevel.INFO))
 				.childHandler(new TelnetServerInitializer());
 			
-			ChannelFuture future = b.bind(port).sync();
-			future.channel().closeFuture().sync();
+			channel = b.bind(port).sync().channel();
+			
+			channelFuture = channel.closeFuture();
+			channelFuture.sync();
 			
 		} catch (Exception e) {
 			logger.error("{}", e);
