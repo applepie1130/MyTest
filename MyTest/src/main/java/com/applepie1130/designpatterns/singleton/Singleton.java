@@ -10,6 +10,7 @@ public class Singleton {
 	
 	private volatile static Singleton singleton;
 	
+	// 객체생성을 막음
 	Singleton () {}
 	
 	public static Singleton getInstance () {
