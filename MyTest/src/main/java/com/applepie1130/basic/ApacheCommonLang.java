@@ -216,14 +216,33 @@ public class ApacheCommonLang {
 	 */
 	private static void objectUtilsTest() {
 
-		// ObjectUtils.compare(c1, c2);
-		// ObjectUtils.equals(object1, object2);
-		// ObjectUtils.max(arg0)
-		// ObjectUtils.notEqual(object1, object2)
-		// ObjectUtils.max(arg0)
-		// ObjectUtils.min(arg0)
-		// ObjectUtils.toString(obj)
-		// ObjectUtils.toString(obj, nullStr)
+		// ObjectUtils.compare
+		logger.info("ObjectUtils.compare : {}",	ObjectUtils.compare("20160201", "20160202"));			// => -1
+		logger.info("ObjectUtils.compare : {}",	ObjectUtils.compare("20160202", "20160202"));			// => 0
+		logger.info("ObjectUtils.compare : {}",	ObjectUtils.compare("20160203", "20160202"));			// => 1
+		logger.info("ObjectUtils.compare : {}",	ObjectUtils.compare("20160203", "2016"));				// => 4 양수이긴 하지만, 이 값은 모지?
+
+		// 음수 비교시 이상한결과.. 이건 머지?
+		logger.info("ObjectUtils.compare : {}",	ObjectUtils.compare("-1", "0"));						// => -3
+		logger.info("ObjectUtils.compare : {}",	ObjectUtils.compare("-5", "-5"));						// => 0
+		logger.info("ObjectUtils.compare : {}",	ObjectUtils.compare("-3", "-5"));						// => -2
+
+
+		// ObjectUtils.defaultIfNull
+		logger.info("ObjectUtils.defaultIfNull : {}",	ObjectUtils.defaultIfNull(null, "NULL"));		// => "NULL"
+		logger.info("ObjectUtils.defaultIfNull : {}",	ObjectUtils.defaultIfNull("", "NULL"));			// => ""
+
+		// ObjectUtils.notEqual
+		Object o = "!";
+		logger.info("ObjectUtils.notEqual : {}",	ObjectUtils.notEqual(null, null));					// => false
+		logger.info("ObjectUtils.notEqual : {}",	ObjectUtils.notEqual("a", "a"));					// => false
+		logger.info("ObjectUtils.notEqual : {}",	ObjectUtils.notEqual(new Object(), new Object()));	// => true
+
+		// ObjectUtils.max
+		logger.info("ObjectUtils.max : {}",	ObjectUtils.max("101", "-111"));							// => "101"
+		logger.info("ObjectUtils.min : {}",	ObjectUtils.min("-10", "11"));								// => "-10"
+		logger.info("ObjectUtils.max : {}",	ObjectUtils.max("-10", "-1"));								// => "-1"	음수 비교시 값이 이상함 ..?
+		logger.info("ObjectUtils.min : {}",	ObjectUtils.min("-10", "-1"));								// => "-10"	음수 비교시 값이 이상함 ..?
 
 	}
 
@@ -242,7 +261,6 @@ public class ApacheCommonLang {
 		// BooleanUtils.toInteger(bool, trueValue, falseValue)
 		// BooleanUtils.toString(bool, trueString, falseString)
 		// BooleanUtils.toStringYesNo(bool)
-
 	}
 
 }
