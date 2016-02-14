@@ -212,6 +212,8 @@ public class ApacheCommonLang {
 	/**
 	 * objectUtilsTest
 	 *
+	 * {@link} https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/ObjectUtils.html
+	 *
 	 * @author applepie1130
 	 */
 	private static void objectUtilsTest() {
@@ -249,18 +251,32 @@ public class ApacheCommonLang {
 	/**
 	 * booleanUtilsTest
 	 *
+	 * {@link} https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/BooleanUtils.html
+	 *
 	 * @author applepie1130
 	 */
 	private static void booleanUtilsTest() {
-		// BooleanUtils.compare(x, y)
-		// BooleanUtils.isFalse(bool)
-		// BooleanUtils.isNotFalse(bool)
-		// BooleanUtils.isTrue(bool)
-		// BooleanUtils.toBoolean()
-		// BooleanUtils.toInteger(bool)
-		// BooleanUtils.toInteger(bool, trueValue, falseValue)
-		// BooleanUtils.toString(bool, trueString, falseString)
-		// BooleanUtils.toStringYesNo(bool)
+
+		// BooleanUtils.isTrue
+		logger.info("BooleanUtils.isTrue : {}",	BooleanUtils.isTrue(true));								// => true
+		logger.info("BooleanUtils.isTrue : {}",	BooleanUtils.isTrue(null));								// => false
+
+		// BooleanUtils.toBoolean
+		logger.info("BooleanUtils.toBoolean : {}",	BooleanUtils.toBoolean(Boolean.TRUE));				// => true
+		logger.info("BooleanUtils.toBoolean : {}",	BooleanUtils.toBoolean(Boolean.FALSE));				// => false
+		logger.info("BooleanUtils.toBoolean : {}",	BooleanUtils.toBoolean(0));							// => false
+		logger.info("BooleanUtils.toBoolean : {}",	BooleanUtils.toBoolean(1));							// => true
+		logger.info("BooleanUtils.toBoolean : {}",	BooleanUtils.toBoolean(2));							// => true
+
+		// BooleanUtils.toInteger
+		logger.info("BooleanUtils.toInteger : {}",	BooleanUtils.toInteger(true));						// => 1
+		logger.info("BooleanUtils.toInteger : {}",	BooleanUtils.toInteger(false));						// => 0
+
+		// BooleanUtils.toStringTrueFalse
+		logger.info("BooleanUtils.toStringTrueFalse : {}",	BooleanUtils.toStringTrueFalse(true));		// => "true"
+		logger.info("BooleanUtils.toStringTrueFalse : {}",	BooleanUtils.toStringTrueFalse(false));		// => "false"
+		logger.info("BooleanUtils.toStringTrueFalse : {}",	BooleanUtils.toStringTrueFalse(null));		// => null
+
 	}
 
 }
