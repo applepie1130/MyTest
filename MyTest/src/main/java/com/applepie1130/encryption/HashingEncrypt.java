@@ -102,6 +102,7 @@ public class HashingEncrypt {
 		SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
 		byte[] testHash = skf.generateSecret(spec).getEncoded();
 
+		// 두 수가 서로 다르면 1 리턴, 같으면 0 (xor 연산)
 		int diff = hash.length ^ testHash.length;
 		for (int i = 0; i < hash.length && i < testHash.length; i++) {
 			diff |= hash[i] ^ testHash[i];
