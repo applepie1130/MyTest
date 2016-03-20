@@ -5,13 +5,25 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BeginingLamda {
+
+/**
+ *
+ * System.out::println		==		x -> System.out.println(x)
+ *
+ *
+ *
+ * @author SungJun
+ *
+ */
+
+public class BeginingLambda {
 
 	public static void main(String[] args) {
-
 		List<String> filterTestLamda = filterTestLamda();
-		System.out.println(filterTestLamda);
+		filterTestLamda.forEach(System.out::println);
 
+
+		test01_08();
 	}
 
 	/*
@@ -27,12 +39,25 @@ public class BeginingLamda {
 			guests.add(guest);
 		}
 
-		System.out.println(guests);
+		// 람다를 이용한 foreach
+		guests.forEach(System.out::println);
 
 		return guests.stream()
 				.filter( g -> "CJOS".equals(g.getCompany()) )
 				.sorted( Comparator.comparing(Guest::getGrade) )
-				.map(Guest::getName)
+//				.map( g -> g.getName() )
+				.map( Guest::getName )
 				.collect( Collectors.toList() );
+	}
+
+	private static void test01_08() {
+		String[] names = { "a", "b", "c" };
+		List<Runnable> runners = new ArrayList<>();
+
+		for ( String name : names ) {
+			runners.add( () -> System.out.println(name) );
+		}
+
+		runners.forEach(System.out::println);
 	}
 }
