@@ -1,5 +1,6 @@
 package com.applepie1130.date;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.joda.time.DateTime;
@@ -32,7 +33,8 @@ public class DateHandling {
 	 * @throws
 	 */
 	public static void main(String[] args) {
-		generateJodaTime();
+//		generateJodaTime();
+		caculatingUsingCalendarAndDate();
 	}
 	
 	/**
@@ -51,5 +53,33 @@ public class DateHandling {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		logger.info("현재시간 : {}", date);
 		logger.info("String형태의 시간을 DateTime으로 변환 : {}", simpleDateFormat.format(date));
+	}
+	
+
+	/**
+	 * Calandar, Date 활용 테스트 메소드 
+	 * 
+	 * @author	applepie1130
+	 */
+	public static void caculatingUsingCalendarAndDate() {
+		
+		// 시작일자 1달전 23:59:59
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.MONTH, -1);
+		calendar.set(Calendar.HOUR_OF_DAY, 23);
+		calendar.set(Calendar.MINUTE, 59);
+		calendar.set(Calendar.SECOND, 59);
+		Date fromDate = calendar.getTime();
+		
+		// 종료일자 현재일자 00:00:00
+		calendar = Calendar.getInstance();
+		calendar.set(Calendar.HOUR_OF_DAY, 00);
+		calendar.set(Calendar.MINUTE, 00);
+		calendar.set(Calendar.SECOND, 00);
+		Date toDate = calendar.getTime();
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(simpleDateFormat.format(fromDate));
+		System.out.println(simpleDateFormat.format(toDate));
 	}
 }
