@@ -1,63 +1,100 @@
-/**
- * 
- */
 package com.applepie1130.basic.model;
 
 import java.io.Serializable;
 import java.util.List;
 
-import lombok.Data;
-import lombok.extern.log4j.Log4j;
 
-
-@Data
-@Log4j
 public class Tcustomer implements Serializable {
 	
-	private static final long serialVersionUID = 5511268084215137799L;
+	private static final long serialVersionUID = 8447665447246587925L;
 	
-	private static String id;
-	private static String name;
-	private static Integer age;
-	private static String phonNumber;
-	private static String address;
-	private static List<Tcustomer> tcustomerList;
+	private String id;
+	private String department;
+	private Integer age;
+	private String name;
+	private String phonNumber;
+	private String etc;
 	
-	public static List<Tcustomer> getTcustomerList() {
-		return tcustomerList;
-	}
-	public static void setTcustomerList(List<Tcustomer> tcustomerList) {
-		Tcustomer.tcustomerList = tcustomerList;
-	}
-	public static String getId() {
+	/**
+	 * @return the id
+	 */
+	public String getId() {
 		return id;
 	}
-	public static void setId(String id) {
-		Tcustomer.id = id;
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(String id) {
+		this.id = id;
 	}
-	public static String getName() {
-		return name;
+	/**
+	 * @return the department
+	 */
+	public String getDepartment() {
+		return department;
 	}
-	public static void setName(String name) {
-		Tcustomer.name = name;
+	/**
+	 * @param department the department to set
+	 */
+	public void setDepartment(String department) {
+		this.department = department;
 	}
-	public static Integer getAge() {
+	/**
+	 * @return the age
+	 */
+	public Integer getAge() {
 		return age;
 	}
-	public static void setAge(Integer age) {
-		Tcustomer.age = age;
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(Integer age) {
+		this.age = age;
 	}
-	public static String getPhonNumber() {
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the phonNumber
+	 */
+	public String getPhonNumber() {
 		return phonNumber;
 	}
-	public static void setPhonNumber(String phonNumber) {
-		Tcustomer.phonNumber = phonNumber;
+	/**
+	 * @param phonNumber the phonNumber to set
+	 */
+	public void setPhonNumber(String phonNumber) {
+		this.phonNumber = phonNumber;
 	}
-	public static String getAddress() {
-		return address;
+	/**
+	 * @return the etc
+	 */
+	public String getEtc() {
+		return etc;
 	}
-	public static void setAddress(String address) {
-		Tcustomer.address = address;
+	/**
+	 * @param etc the etc to set
+	 */
+	public void setEtc(String etc) {
+		this.etc = etc;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Tcustomer [id=" + id + ", department=" + department + ", age=" + age + ", name=" + name
+				+ ", phonNumber=" + phonNumber + ", etc=" + etc + "]";
+	}
+	
 	
 }
