@@ -1,7 +1,7 @@
 package com.applepie1130.basic.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Date;
 
 
 public class Tcustomer implements Serializable {
@@ -14,6 +14,9 @@ public class Tcustomer implements Serializable {
 	private String name;
 	private String phonNumber;
 	private String etc;
+	private Date birthDate;
+	private Date insertDate;
+	
 	
 	/**
 	 * @return the id
@@ -87,13 +90,44 @@ public class Tcustomer implements Serializable {
 	public void setEtc(String etc) {
 		this.etc = etc;
 	}
+	/**
+	 * @return the birthDate
+	 */
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	/**
+	 * @param birthDate the birthDate to set
+	 */
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	/**
+	 * @return the insertDate
+	 */
+	public Date getInsertDate() {
+		return insertDate;
+	}
+	/**
+	 * @param insertDate the insertDate to set
+	 */
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
+	}
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Tcustomer [id=" + id + ", department=" + department + ", age=" + age + ", name=" + name
-				+ ", phonNumber=" + phonNumber + ", etc=" + etc + "]";
+				+ ", phonNumber=" + phonNumber + ", etc=" + etc + ", birthDate=" + birthDate + ", insertDate="
+				+ insertDate + "]";
 	}
 	
 	
